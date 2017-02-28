@@ -10,11 +10,20 @@ namespace GeometryLib.Shapes
     /// <summary>
     /// Прямоугольный треугольник
     /// </summary>
-    public class RightAngledTriangle : Triangle
+    public class RightAngledTriangle : Triangle, IPrintable
     {
         public RightAngledTriangle(double side1, double side2) 
             : base(side1, side2, Math.Sqrt(side1 * side1 + side2 * side2))
         {
+        }
+
+        public override string Print()
+        {
+            double area = 0.5 * this.Side1 * this.Side2;
+            var info = "Right-angled Triangle: ";
+            info += $"sides {this.Side1} {this.Side2} {this.Side3}, ";
+            info += $"area = {area}";
+            return info;
         }
     }
 }

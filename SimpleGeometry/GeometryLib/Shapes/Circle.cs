@@ -10,7 +10,7 @@ namespace GeometryLib.Shapes
     /// <summary>
     /// Круг
     /// </summary>
-    public class Circle : Shape
+    public class Circle : Shape, IPrintable
     {
         public double Radius { get; }
 
@@ -18,6 +18,12 @@ namespace GeometryLib.Shapes
         {
             Debug.Assert(radius > 0, "radius > 0");
             Radius = radius;
+        }
+
+        public override string Print()
+        {
+            double area = Radius * Radius * Math.PI;
+            return $"Circle: radius = {Radius}, area = {area}";
         }
     }
 }
