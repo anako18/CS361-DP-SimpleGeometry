@@ -17,12 +17,16 @@ namespace GeometryLib.Shapes
         public double Side2 { get; }
         public double Side3 { get; }
 
-        public override string Print()
+        public override double area()
         {
             var p = (Side1 + Side2 + Side3) / 2;
-            double area = Math.Sqrt(p * (p - Side1) * (p - Side2) * (p - Side3));
+            return Math.Sqrt(p * (p - Side1) * (p - Side2) * (p - Side3));
+        }
+
+        public override string Print()
+        {
             //Console.WriteLine($"Triangle: sides: {Side1} {Side2} {Side3}, area = {area}");
-            return $"Triangle: sides: {Side1} {Side2} {Side3}, area = {area}";
+            return $"Triangle: sides: {Side1} {Side2} {Side3}, area = {area()}";
         }
 
         public Triangle(double side1, double side2, double side3)
